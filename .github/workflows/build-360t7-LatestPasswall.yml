@@ -68,10 +68,10 @@ jobs:
       run: |
          cd openwrt
          ./scripts/feeds update -a 
-         git clone -b master --single-branch https://github.com/immortalwrt/packages.git packages_master
-         rm -rf ./feeds/packages/lang/golang
-         mv ./packages_master/lang/golang ./feeds/packages/lang
-         rm -rf ./packages_master
+         
+         # 更新 golang 1.25 版本
+         rm -rf feeds/packages/lang/golang
+         git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 
 
     - name: Install feeds
